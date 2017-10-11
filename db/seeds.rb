@@ -21,6 +21,16 @@ end
 
 # Let's do this ...
 
+## USERS
+for i in 1..100 do
+  User.create!({
+    first_name: Faker::Name.unique.first_name,
+    last_name: Faker::Name.unique.first_name,
+    email: Faker::Internet.unique.email,
+    password_digest: '$2a$06$GxivLkc02HyCOp9E48Rw4.MX4BKKf3sW22E2ud075WRP3CrxvscFi' #1234
+  })
+  end
+  
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -131,6 +141,7 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+
 
 
 puts "DONE!"
