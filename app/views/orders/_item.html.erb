@@ -1,0 +1,21 @@
+<% if product = Product.find(item.product_id) %>
+  <tr>
+    <td>
+      <%= image_tag product.image.tiny %>
+    </td>
+    <td>
+      <h4><%= product.name %></h4>
+      <br>
+      <p><%= product.description %></p>
+    </td>
+    <td>
+    <%= product.price %>
+    </td>
+    <td>
+      <%= item.quantity %>
+    </td>
+    <td>
+      <%= humanized_money_with_symbol (item.total_price_cents/100.0) %>
+    </td>
+  </tr>
+<% end %>
