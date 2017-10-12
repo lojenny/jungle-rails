@@ -4,6 +4,8 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if cart.size != 0 %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -50,4 +52,9 @@
     </div>
   </div>
 
-</section>
+  <% else %>
+  <p>You have nothing in the cart! Click <a href='/'>here</a> to go back to main page.</p>
+  <% end %>
+  </section>
+  
+
