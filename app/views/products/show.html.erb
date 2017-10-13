@@ -26,6 +26,51 @@
       </div>
     </div>
 
+
+<h4>Reviews:</h4>
+<div class="row">
+  <div class="col-sm-2">
+    <dt>User</dt>
+  </div>
+  <div class="col-sm-6">
+    <dt>Description</dt>
+  </div>
+  <div class="col-sm-2">
+    <dt>Rating</dt>
+  </div>
+  <div class="col-sm-2">
+    <dt>Date Posted</dt>
+  </div>
+</div>
+
+<% @product.reviews.each do |review| %>
+  <div class="row">
+    <div class="col-sm-2">
+      <dd>
+        <%= review.user.first_name %>
+        <%= review.user.last_name %>    
+      </dd>
+    </div>
+    <div class="col-sm-6">
+      <dd>
+        <%= review.description %>
+      </dd>
+    </div>
+    <div class="col-sm-2">
+      <dd>
+        <%= review.rating %>
+      </dd>
+    </div>
+    <div class="col-sm-2">
+      <dd>
+        <%= review.created_at %>
+      </dd>
+    </div>
+  </div>
+<% end %>
+
   </article>
 
 </section>
+
+
