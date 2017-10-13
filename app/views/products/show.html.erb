@@ -69,6 +69,23 @@
   </div>
 <% end %>
 
+
+<%= form_for ([@product, @review]) do |form| %>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.select :rating, (1..5) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
   </article>
 
 </section>
