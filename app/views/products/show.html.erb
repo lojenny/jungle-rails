@@ -32,7 +32,7 @@
   <div class="col-sm-2">
     <dt>User</dt>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <dt>Description</dt>
   </div>
   <div class="col-sm-2">
@@ -41,9 +41,12 @@
   <div class="col-sm-2">
     <dt>Date Posted</dt>
   </div>
+  <div class="col-sm-2">
+    <dt>Delete</dt>
+  </div>
 </div>
 
-<% @product.reviews.each do |review| %>
+<% @product.reviews.reverse_each do |review| %>
   <div class="row">
     <div class="col-sm-2">
       <dd>
@@ -51,7 +54,7 @@
         <%= review.user.last_name %>    
       </dd>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <dd>
         <%= review.description %>
       </dd>
@@ -65,10 +68,20 @@
       <dd>
         <%= review.created_at %>
       </dd>
+    </div>   
+    <% if current_user.id == review.user_id %>
+    <div class="col-sm-2">
+      <dd> 
+        <%= button_to 'Delete', {:controller => :reviews, :action => 'destroy', :id => review.id }, :method => :delete, data: { confirm: "Are you sure?" } %>
+      </dd>                
     </div>
+    <% else %>
+      Unauthorized
+    <%end%>
   </div>
 <% end %>
 
+<% if current_user %>
 
 <%= form_for ([@product, @review]) do |form| %>
   <div class="field">
@@ -84,6 +97,10 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>
+
+<% else %>
+<div> Log in to review products. </div>
 <% end %>
 
   </article>
