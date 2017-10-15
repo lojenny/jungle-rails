@@ -8,11 +8,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]  
   resources :categories, only: [:show]
 
-  # get 'user/login' => 'user#login'
-  # post 'user/login' => 'user#login'  
-  # post 'user/logout' => 'user#logout'
-  # get 'user/register' => 'user#register'
-  # post 'user/register' => 'user#register'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

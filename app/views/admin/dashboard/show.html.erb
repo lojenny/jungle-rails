@@ -1,2 +1,9 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1>Dashboard</h1>
+
+<div class="well form-group col-sm-7">
+<%= link_to 'See All Categories and Create New Categories', [:admin, :categories], class: 'btn btn-info' %>
+</div>
+
+<div class="well form-group col-sm-7">
+<%= link_to 'See All Products and Create New Products', [:admin, :products], class: 'btn btn-info' %>
+</div>

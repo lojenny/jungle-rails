@@ -12,7 +12,7 @@
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
 
-      <div class="col-sm-8">
+      <div class="col-sm-6">
         <dl class="dl-horizontal">
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
@@ -26,28 +26,27 @@
       </div>
     </div>
 
-
 <h4>Reviews:</h4>
-<div class="row">
+<div class="col-md-10 well row">
   <div class="col-sm-2">
     <dt>User</dt>
   </div>
   <div class="col-sm-4">
     <dt>Description</dt>
   </div>
-  <div class="col-sm-2">
+  <div class="col-sm-1">
     <dt>Rating</dt>
   </div>
   <div class="col-sm-2">
     <dt>Date Posted</dt>
   </div>
-  <div class="col-sm-2">
+  <div class="col-sm-1">
     <dt>Delete</dt>
   </div>
 </div>
 
 <% @product.reviews.reverse_each do |review| %>
-  <div class="row">
+  <div class="col-md-10 well row">
     <div class="col-sm-2">
       <dd>
         <%= review.user.first_name %>
@@ -59,7 +58,7 @@
         <%= review.description %>
       </dd>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-1">
       <dd>
         <%= review.rating %>
       </dd>
@@ -69,8 +68,8 @@
         <%= review.created_at %>
       </dd>
     </div>   
-    <% if current_user.id == review.user_id %>
-    <div class="col-sm-2">
+    <% if current_user && current_user.id == review.user_id %>
+    <div class="col-sm-1">
       <dd> 
         <%= button_to 'Delete', {:controller => :reviews, :action => 'destroy', :id => review.id }, :method => :delete, data: { confirm: "Are you sure?" } %>
       </dd>                
@@ -82,23 +81,23 @@
 <% end %>
 
 <% if current_user %>
-
-<%= form_for ([@product, @review]) do |form| %>
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.select :rating, (1..5) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
+  <%= form_for ([@product, @review]) do |form| %>
+    <div class="well col-md-6">    
+      <h4> Review the Product </h4>
+      <div class="row">
+        <div class="col-md-12 form-group review-description">
+          Description: 
+          <%= form.text_area :description, class: "form-control review-description-field", placeholder: "How was your experience with the product?" %>
+        </div>
+      </div>
+      <div class='form-group'>
+        Rating: <%= form.select(:rating, (1..5)) %>
+      </div> 
+      <div>  
+        <%= form.submit "Submit", class: "btn btn-ifo"%>
+      </div>
+    </div>
+  <% end %>
 <% else %>
 <div> Log in to review products. </div>
 <% end %>

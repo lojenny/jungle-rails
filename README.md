@@ -26,3 +26,17 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## Screenshots
+
+Home Page with products:
+![“Homepage”]()
+
+Shopping Cart that is linked with Stripe:
+![“ShoppingCart”]()
+
+Order Summary after payment:
+![“OrderSummary”]()
+
+Product with past reviews and review box for signed in users :
+![“ProductReview”]()
