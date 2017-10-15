@@ -30,13 +30,13 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 ## Screenshots
 
 Home Page with products:
-![“Homepage”]()
+![“Homepage”](https://github.com/lojenny/jungle-rails/blob/master/docs/Homepage.png)
 
 Shopping Cart that is linked with Stripe:
-![“ShoppingCart”]()
+![“ShoppingCart”](https://github.com/lojenny/jungle-rails/blob/master/docs/ShoppingCart.png)
 
 Order Summary after payment:
-![“OrderSummary”]()
+![“OrderSummary”](https://github.com/lojenny/jungle-rails/blob/master/docs/OrderSummary.png)
 
 Product with past reviews and review box for signed in users :
-![“ProductReview”]()
+![“ProductReview”](https://github.com/lojenny/jungle-rails/blob/master/docs/ProductReview.png)
