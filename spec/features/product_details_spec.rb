@@ -1,8 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
-
-  # SETUP
+RSpec.feature "ProductDetails", type: :feature, js: true do
   before :each do
     @category = Category.create! name: 'Apparel'
 
@@ -15,16 +13,17 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
         price: 64.99
       )
     end
-  end
+  end  
 
-  scenario "They see all products" do
+  scenario "They click a product" do
     # ACT
     visit root_path
 
+    first('article.product').find_link('Detail').click
     # DEBUG
-    # save_screenshot
-
     # VERIFY
-    expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_css 'section.products-show'
+
+    save_screenshot
   end
 end
