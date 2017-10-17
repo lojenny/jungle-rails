@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_filter :authorize
+  # before_filter :authorize
   
   def show
     @current_user = User.find_by_email(params[:email])
